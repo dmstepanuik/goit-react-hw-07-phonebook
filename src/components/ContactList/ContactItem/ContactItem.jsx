@@ -1,0 +1,23 @@
+import PT from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { phoneBookSlice } from 'redux/phoneBook.slice';
+import s from './ContactItem.module.css';
+export default function ContactItem({ id, name, phone }) {
+  const dispatch = useDispatch();
+  return (
+    <li>
+      {name}: {phone}{' '}
+      <button
+        className={s.btn}
+        onClick={() => dispatch(phoneBookSlice.actions.delItem(id))}
+      >
+        Delete
+      </button>
+    </li>
+  );
+}
+ContactItem.propTypes = {
+  id: PT.string.isRequired,
+  name: PT.string.isRequired,
+  phone: PT.string.isRequired,
+};
