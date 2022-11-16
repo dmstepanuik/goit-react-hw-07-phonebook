@@ -1,12 +1,12 @@
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/phoneBook.operations';
-import { phoneBookSlice } from 'redux/phoneBook.slice';
+// import { phoneBookSlice } from 'redux/phoneBook.slice';
 import s from './Form.module.css';
 
 export default function Form() {
   const dispatch = useDispatch();
-  const getContacts = state => state.contacts.items;
+  // const getContacts = state => state.contacts.items;
   const contacts = useSelector(state => state.contacts.items);
   // console.log(contacts);
   const getIsExistContact = contact =>
