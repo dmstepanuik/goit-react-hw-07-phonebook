@@ -26,7 +26,7 @@ export default function Form() {
       return;
     }
     dispatch(addContact(contact));
-    // dispatch(phoneBookSlice.actions.addItem(contact));
+
     form.reset();
   };
 

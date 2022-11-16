@@ -22,12 +22,7 @@ export const phoneBookSlice = createSlice({
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
-    // addItem: (state, action) => {
-    //   state.items = [...state.items, action.payload];
-    // },
-    // setItems: (state, action) => {
-    //   state.items = action.payload;
-    // },
+
     delItem: (state, action) => {
       state.items = state.items.filter(it => it.id !== action.payload);
     },
@@ -44,7 +39,6 @@ export const phoneBookSlice = createSlice({
       state.contacts.items = state.contacts.items.filter(
         it => it.id !== payload.id
       );
-      // state.contacts.items.push(payload);
     });
   },
 });
