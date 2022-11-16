@@ -1,5 +1,6 @@
 import PT from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/phoneBook.operations';
 import { phoneBookSlice } from 'redux/phoneBook.slice';
 import s from './ContactItem.module.css';
 export default function ContactItem({ id, name, phone }) {
@@ -9,7 +10,9 @@ export default function ContactItem({ id, name, phone }) {
       {name}: {phone}{' '}
       <button
         className={s.btn}
-        onClick={() => dispatch(phoneBookSlice.actions.delItem(id))}
+        // onClick={() => dispatch(phoneBookSlice.actions.delItem(id))}
+
+        onClick={() => dispatch(deleteContact(id))}
       >
         Delete
       </button>

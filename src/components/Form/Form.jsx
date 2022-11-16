@@ -1,12 +1,14 @@
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/phoneBook.operations';
 import { phoneBookSlice } from 'redux/phoneBook.slice';
 import s from './Form.module.css';
 
 export default function Form() {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.items);
-
+  const getContacts = state => state.contacts.items;
+  const contacts = useSelector(state => state.contacts.items);
+  // console.log(contacts);
   const getIsExistContact = contact =>
     contacts.some(it => it.name === contact.name);
 
@@ -23,10 +25,11 @@ export default function Form() {
       alert(`${contact.name} is alredy in contacts`);
       return;
     }
-
-    dispatch(phoneBookSlice.actions.addItem(contact));
+    dispatch(addContact(contact));
+    // dispatch(phoneBookSlice.actions.addItem(contact));
     form.reset();
   };
+
   return (
     <form className={s.form} onSubmit={onSubmit}>
       <div>

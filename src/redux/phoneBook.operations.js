@@ -9,3 +9,17 @@ export const fetchContacts = createAsyncThunk('contacts/fetchAll', async () => {
   const { data } = await contactsAxios.get('/contacts');
   return data;
 });
+export const addContact = createAsyncThunk(
+  'contacts/addContact',
+  async contact => {
+    const { data } = await contactsAxios.post('/contacts', contact);
+    return data;
+  }
+);
+export const deleteContact = createAsyncThunk(
+  'contacts/deleteContact',
+  async id => {
+    const { data } = await contactsAxios.delete(`/contacts/${id}`);
+    return data;
+  }
+);
